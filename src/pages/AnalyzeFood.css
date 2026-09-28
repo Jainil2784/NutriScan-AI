@@ -1,0 +1,329 @@
+/* =========================================
+   ANALYZE FOOD PAGE STYLES
+   ========================================= */
+
+.analyze-page {
+  min-height: 100vh;
+  padding: 60px 0 80px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.af-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.af-orb-1 {
+  width: 350px;
+  height: 350px;
+  top: -50px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+}
+
+.af-orb-2 {
+  width: 300px;
+  height: 300px;
+  bottom: 100px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(46, 125, 50, 0.08) 0%, transparent 70%);
+}
+
+/* Step Indicator */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 40px;
+}
+
+.step {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--card);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.step.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.35);
+}
+
+.step.done {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-color: transparent;
+  color: white;
+}
+
+.step-line {
+  flex: 1;
+  max-width: 60px;
+  height: 2px;
+  background: var(--border);
+}
+
+.step-line.done-line {
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+}
+
+/* Header */
+.af-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.af-title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.af-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 16px;
+}
+
+.af-category-chip {
+  display: inline-block;
+  padding: 6px 18px;
+  background: rgba(46, 125, 50, 0.1);
+  border: 1.5px solid rgba(46, 125, 50, 0.25);
+  border-radius: 100px;
+  font-size: 0.875rem;
+  color: var(--primary);
+}
+
+/* Upload Area */
+.upload-area {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-xl);
+  padding: 60px 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--card);
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-area::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.02) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.upload-area:hover {
+  border-color: var(--primary);
+  background: rgba(46, 125, 50, 0.02);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.upload-area.drag-over {
+  border-color: var(--primary-light);
+  background: rgba(76, 175, 80, 0.06);
+  transform: scale(1.01);
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.15);
+}
+
+.upload-area.has-image {
+  padding: 0;
+  border-style: solid;
+  border-color: var(--primary);
+  cursor: default;
+}
+
+/* Upload Placeholder */
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.camera-illustration {
+  margin-bottom: 8px;
+  opacity: 0.75;
+  transition: var(--transition);
+}
+
+.upload-area:hover .camera-illustration {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.upload-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.upload-hint {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.upload-browse {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.upload-formats {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Image Preview */
+.image-preview {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 400px;
+  padding: 16px;
+}
+
+.preview-overlay {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.preview-remove {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(198, 40, 40, 0.9);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(8px);
+}
+
+.preview-remove:hover {
+  background: #C62828;
+  transform: scale(1.05);
+}
+
+.preview-success-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(46, 125, 50, 0.9);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+  animation: scaleIn 0.3s ease;
+}
+
+/* Error */
+.upload-error {
+  background: rgba(198, 40, 40, 0.08);
+  border: 1.5px solid rgba(198, 40, 40, 0.25);
+  color: #C62828;
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+}
+
+/* Upload Buttons */
+.upload-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.upload-btn {
+  flex: 1;
+  max-width: 200px;
+  justify-content: center;
+}
+
+/* Demo Notice */
+.demo-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(46, 125, 50, 0.06);
+  border: 1px solid rgba(46, 125, 50, 0.15);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+/* Actions */
+.af-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.af-analyze {
+  min-width: 220px;
+  justify-content: center;
+}
+
+.af-hint {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
